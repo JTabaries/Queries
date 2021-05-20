@@ -1,0 +1,22 @@
+{
+	"manifest_version":2,
+	"name":"queries",
+	"description": "An extension to design complex google queries.",
+	"version":"1.0",
+	"icons":{
+		"48":"icons/query.svg"
+	},
+	"browser_action":{
+		"default_icon":"icons/query.svg",
+		"default_title":"Queries",
+		"default_popup":"popup.html"
+	},
+	"permissions":["storage","tabs"],
+	"commands":{
+		"_execute_sidebar_action":{
+			"suggested_key":{
+				"default":"Ctrl+Shift+G"
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="help.css"/>
+	<title>Queries - aide</title>
+	<style type="text/css">
+		*{
+			font-family: "Arial";
+		}
+		h1,h2,h3,h4,h5,h6{
+			color: #003eaa;
+		}
+		p{
+			text-align: justify;
+		}
+	</style>
+</head>
+<body>
+	<h1>Aide</h1>
+	<p>L'extension Queries permet de concevoir des requêtes multicritières Google complexes, à l'aide d'une interface simple et intuitive, présentée sous la forme d'un panneau latéral.</p>
+	<h2>Sommaire</h2>
+	<ul>
+		<li><a href="#fonct">Fonctionalités supportées</a></li>
+		<li><a href="#const">Construction d'une requête</a></li>
+		<li><a href="#sauv">Sauvegarde d'une requête</a></li>
+		<li><a href="#search">Utilisation des requêtes sauvegardées</a></li>
+	</ul>
+	<h2 id="fonct">Fonctionnalités supportées</h2>
+	<p>V.0 du 16/05/2021</p>
+	<ul>
+		<li>Recherche par mots clés, par sites et par type de fichier,</li>
+		<li>Opérateur OR uniquement pour les sites et les types de fichiers:</li>
+		<p>Par exemple: (filetype:png OR filetype:pdf)</p>
+		<li>Opérateur OR et AND pour les mots clé:</li>
+		<p>(terme1 OR terme1) (site:site1 OR site:site2) ou (terme1 AND terme1) (site:site1 OR site:site2) </p>
+		<li>Bornes temporelles "before" et "after"</li>
+		
+	</ul>
+	<h2 id="const">Construction d'une requête</h2>
+	<p>Pour construire une requête, spécifiez les termes, sites et types de fichier dans les cartouches prévus à cet effet. Les termes doivent être entrés un par un en cliquant sur le bouton "ajouter". A chaque fois, l'ajout d'un terme libère le cartouche. Par défaut, l'opérateur OR est implémenté. Pour utiliser l'opérateur AND et ainsi rechercher les occurences comportant tous les mots clés, selectionnez "tous les termes doivent être présents".</p>
+	<br>
+	<p>Attention: un usage irréfléchi de l'opérateur AND peut entrainer une absence de résultats.</p>
+	<br>
+	<p>Pour entrer une date, utilisez les calendriers déroulants.</p>
+	<h2 id="sauv">Sauvegarde d'une requête</h2>
+	<p>Sous le constructeur de requête, il est possible de pré-visualiser la requête en cours de construction. La pré-visualisation est mise à jour en temps réel, au rythme de l'ajout des critères de recherche. Si la requête en cours de construction n'est pas satisfaisante, il est possible d'annuler la saisie à l'aide du bouton "RESET", qui vide l'ensemble des saisies. Si la requête est satisfaisante, elle doit être suavegardée à l'aide du bouton "SAVE".</p>
+	<h2 id="search">Utilisation des requêtes sauvegardées</h2>
+	<p>Les requêtes sauvegardées sont affichées sous forme de liste en bas du panneau latéral. Il s'agit de liens affichant la requête et pointant vers l'URL adaptée (URL "google.com?q=" suffixée par les termes de recherche encodés).</p>
+</body>
+</html>
