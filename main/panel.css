@@ -118,6 +118,7 @@ div{
 }
 .divform{
 	border: solid black 0.5px;
+	height: 16px;
 	margin: 10px;
 }
 #stored-queries{
