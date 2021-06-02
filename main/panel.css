@@ -43,10 +43,15 @@ label{
 	flex-direction: column;
 	justify-content: space-between;
 }
+#dateSelect{
+	border: solid black 1px;
+	border-radius: 0px;
+	color: black;
+	margin: 10px;
+}
 .upper{
 	height:30%;
 }
-
 .lower{
 	height: 68%;
 }
@@ -65,12 +70,6 @@ label{
 	justify-content: center;
 	color: white;
 	font-weight: bold;
-}
-#dates{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	font-size: 10px;
 }
 #query-builder{
 	overflow: auto;
@@ -99,9 +98,6 @@ button{
 button:hover{
 	background-color: #0060df;
 }
-ul{
-	
-}
 li{
 	display: flex;
 	flex-direction: row;
@@ -118,11 +114,14 @@ div{
 }
 .divform{
 	border: solid black 0.5px;
-	height: 16px;
 	margin: 10px;
 }
 #stored-queries{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-} 
+}
+#datelimits{
+	display: none;
+	font-size: 10px;
+}

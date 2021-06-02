@@ -4,8 +4,9 @@ const sitebtn=document.getElementById("sitebutton");
 const ftbtn=document.getElementById("filetypebutton");
 const savebutton=document.getElementById("save-button");
 const rstbutton=document.getElementById("reset-button");
-const dateafter=document.getElementById("dateAfter");
-const datebefore=document.getElementById("dateBefore");
+const dtbutton=document.getElementById("datebutton");
+const dateselect=document.getElementById("dateSelect");
+const hlp=document.getElementById("help-button");
 const q="https://www.google.com/search?q=";
 //init storage
 init();
@@ -13,7 +14,11 @@ init();
 Creates specific storage area for stored queries
 Creates a listener for each button.
 */
-function init(){	
+function init(){
+	//displays helps page
+	hlp.addEventListener("click",()=>{
+		displayHelp();
+	});
 	//Retrieves the entered keyword and adds it to the key words list
 	//then clears the form
 	keywordbtn.addEventListener("click", ()=>{
@@ -25,7 +30,8 @@ function init(){
 			wrp.appendChild(newnode);
 		}
 		document.getElementById("keywordform").innerText="";
-		buildquery();
+		var queryObject=buildquery();
+		displayQueryPreview(queryToString(queryObject));
 	});
 	//retrieves the entered site and adds it to the sites list
 	//then clears the form
@@ -38,9 +44,10 @@ function init(){
 			wrp.appendChild(newnode);
 		}
 		document.getElementById("siteform").innerText="";
-		buildquery();
+		var queryObject=buildquery();
+		displayQueryPreview(queryToString(queryObject));
 	});
-	//retrieves the entered filtype and adds it to the types list
+	//retrieves the entered filtype a+" "+str3nd adds it to the types list
 	//then clears the form
 	ftbtn.addEventListener("click", ()=>{
 		var typestr=document.getElementById("filetypeform").textContent;
@@ -51,38 +58,38 @@ function init(){
 			wrp.appendChild(newnode);
 		}
 		document.getElementById("filetypeform").innerText="";
-		buildquery();
+		var queryObject=buildquery();
+		displayQueryPreview(queryToString(queryObject));
 	});
-	dateafter.addEventListener("input",()=>{
-		buildquery();
+	
+	dateselect.addEventListener("change", ()=>{
+		if(dateselect.value === "twoDates"){
+			document.getElementById("datelimits").style.display="block";
+		}else{
+			document.getElementById("datelimits").style.display="none";
+		}
 	});
-	datebefore.addEventListener("input",()=>{
-		buildquery();
-	});
-	//resets the form
-	rstbutton.addEventListener("click",()=>{
-		clearAll();
+	dtbutton.addEventListener("click",()=>{
+		var queryObject=buildquery();
+		displayQueryPreview(queryToString(queryObject));
 	});
 	//saves the query in local storage as a key/value pair
-	//Key = query / Value = URL
 	savebutton.addEventListener("click",()=>{
-		var exp=document.getElementById("query-preview").innerText;
-		var expurl=buildSearchURL(exp);
+		var o=buildquery();
 		var storeIt={};
-		storeIt[exp]={
-			expression:exp,
-			url:expurl
-		};
+		storeIt[queryToString(o)]=o;
 		browser.storage.local.set(storeIt);
 		clearAll();		
 	});
-	
+	rstbutton.addEventListener("click",()=>{
+		clearAll();
+	});
 	updateList();
 	browser.storage.onChanged.addListener(updateList);
 }
 
 /*
-Builds a query based on the user's entries. 
+Builds and returns a query object based on the user's entries. 
 */
 function buildquery(){
 	var i;
@@ -119,14 +126,75 @@ function buildquery(){
 		if(k!=filetypelist.length-1){str3=str3+" OR";}
 	}
 	if(filetypelist.length>1){str3="("+str3+")";}
-	var str4="";
-	if (dateafter.value != "") {str4=" after:"+dateafter.value;}
-	var str5="";
-	if (datebefore.value != "") {str5=" before:"+datebefore.value;}
-	var str=str1+" "+str2+" "+str3+str4+str5;
+	var str=str1;
+	if(str2.length>0){str=str+" "+str2;}
+	if(str3.length>0){str=str+" "+str3;}
+	var queryObj={
+		base:str,
+		date:""
+	};
+	switch (dateselect.value) {
+		case "none":
+			queryObj.date="";
+			break;
+		case "minusOne":
+			queryObj.date="oneDay";
+			break;
+		case "minusSeven":
+			queryObj.date="oneWeek";
+			break;
+		case "minusThirty":
+			queryObj.date="oneMonth";
+			break;
+		default:
+			queryObj.date="";
+			if (document.getElementById("dateAfter").value != "") {queryObj.date+=" after:"+document.getElementById("dateAfter").value;}
+			if (document.getElementById("dateBefore").value != "") {queryObj.date+=" before:"+document.getElementById("dateBefore").value;}
+			break;
+	}
+	return queryObj;
+}
+/*
+Returns the concatenated base and date part of the query
+*/
+function queryToString(query){
+	return query.base+" "+query.date;
+
+}
+/*
+Returns the translated query string, as it can be read in the google search input
+*/
+function queryToFullString(query){
+	var tms=Date.now();
+	var datePart="";
+	switch (query.date) {
+		case "":
+			datePart="";
+			break;
+		case "oneDay":
+			var newtms=tms-86400000;
+			var refdate=new Date(newtms);
+			datePart=" after:"+refdate.toISOString().slice(0,10);
+			break;
+		case "oneWeek":
+			var newtms=tms-604800000;
+			var refdate=new Date(newtms);
+			datePart=" after:"+refdate.toISOString().slice(0,10);
+			break;
+		case "oneMonth":
+			var newtms=tms-2592000000;
+			var refdate=new Date(newtms);
+			datePart=" after:"+refdate.toISOString().slice(0,10);
+			break;
+		default:
+			datePart=query.date;
+			break;
+	}
+	return query.base+datePart;
+}
+function displayQueryPreview(str){
 	document.getElementById("query-preview").innerText=str;
 }
-
 /*
 Clears every data entered
 */
@@ -147,8 +215,10 @@ function clearAll(){
 	while(ftw.hasChildNodes()){
 		ftw.firstChild.remove();
 	}
+	dateselect.selectedIndex = 0;
 	document.getElementById("kwAnd").checked=false;
-	dateafter.value="jj/mm/aaaa";
+	document.getElementById("dateAfter").value="jj/mm/aaaa";
+	document.getElementById("dateBefore").value="jj/mm/aaaa";
 }
 /*
 Updates the queries list
@@ -162,10 +232,12 @@ function updateList(){
 		var storageList=Object.values(results);
 		var i;
 		for(i=0;i<storageList.length;i++){
+			var desig=queryToString(storageList[i]);
+			var url=buildSearchURL(queryToFullString(storageList[i]));
 			var displayNode=document.createElement("A");
-			displayNode.setAttribute("href",storageList[i].url);
+			displayNode.setAttribute("href",url);
 			displayNode.setAttribute("target","_blank");
-			displayNode.innerText=storageList[i].expression;
+			displayNode.innerText=desig;
 
 
 			var deleteNode=document.createElement("BUTTON");
@@ -181,13 +253,28 @@ function updateList(){
 		}
 	});
 }
+/*
+Builds the correct query URL for google search
+*/
 function buildSearchURL(str){
 	str=encodeURIComponent(str);
 	str=str.replace(/%20/g,"+");
 	str=q+str;
 	return str;
 }
+/*
+Removes the query from storage
+*/
 function deleteLine(e){
 	str=e.target.previousSibling.innerText;
 	browser.storage.local.remove(str);
+}
+function displayHelp(){
+	var createData = {
+  	type: "detached_panel",
+  	url: "localhelp.html",
+  	width: 800,
+  	height: 600
+	};
+	var creating = browser.windows.create(createData);
 }

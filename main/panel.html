@@ -6,14 +6,14 @@
 	<title>Queries</title>
 </head>
 <body>
-	<div class="info"><h1>Queries</h1></div>
+	<div class="info"><h1>Queries</h1><p id="help-button">aide</p></div>
 	<div class="main-container">
 		<div id="left-container">
 			<div class="card" id="query-builder">
 				<header id="keywordheader">Constructeur de requête</header>
 				<p>Quels termes recherchez-vous?</p>
 				<label for="kwAnd">Tous les termes doivent être présents (AND)</label>
-				<input type="radio" id="kwAnd" name="operator" value="AND">
+				<input type="checkbox" id="kwAnd" name="operator" value="AND">
 				<div class="wrapper" id="keywordWrapper"></div>
 				<div class="divform" id="keywordform" contenteditable="true"></div>
 				<button id="keywordbutton">ajouter</button>
@@ -30,10 +30,19 @@
 
 				<p>Dates</p>
 				<div id="dates">
-					<p>Entre le:</p><input type="date" id="dateAfter" name="dateAfter">
-					<p> et le:</p><input type="date" id="dateBefore" name="dateBefore">
+					<select id="dateSelect" name="date">
+						<option value="none" selected>Aucune</option>
+						<option value="minusOne">Depuis hier</option>
+						<option value="minusSeven">Depuis 1 semaine</option>
+						<option value="minusThirty">Depuis 1 mois</option>
+						<option value="twoDates">Entre deux dates</option>
+					</select>
+					<div id="datelimits">
+						<p>Entre le:</p><input type="date" id="dateAfter" name="dateAfter">
+						<p> et le:</p><input type="date" id="dateBefore" name="dateBefore">
+					</div>
+					<button id="datebutton">ajouter</button>
 				</div>
-				
 			</div>
 		</div>
 		<div id="right-container">
