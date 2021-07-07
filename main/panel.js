@@ -7,6 +7,8 @@ const rstbutton=document.getElementById("reset-button");
 const dtbutton=document.getElementById("datebutton");
 const dateselect=document.getElementById("dateSelect");
 const hlp=document.getElementById("help-button");
+const contentselect=document.getElementById("contentSelect");
+const csbutton=document.getElementById("contentselectbutton");
 const q="https://www.google.com/search?q=";
 //init storage
 init();
@@ -61,7 +63,11 @@ function init(){
 		var queryObject=buildquery();
 		displayQueryPreview(queryToString(queryObject));
 	});
-	
+	csbutton.addEventListener("click",()=>{
+		var queryObject=buildquery();
+		displayQueryPreview(queryToString(queryObject));
+	});
+	//displays the date pickers if needed
 	dateselect.addEventListener("change", ()=>{
 		if(dateselect.value === "twoDates"){
 			document.getElementById("datelimits").style.display="block";
@@ -126,12 +132,14 @@ function buildquery(){
 		if(k!=filetypelist.length-1){str3=str3+" OR";}
 	}
 	if(filetypelist.length>1){str3="("+str3+")";}
+	//building final expression
 	var str=str1;
 	if(str2.length>0){str=str+" "+str2;}
 	if(str3.length>0){str=str+" "+str3;}
 	var queryObj={
 		base:str,
-		date:""
+		date:"",
+		tab:""
 	};
 	switch (dateselect.value) {
 		case "none":
@@ -152,13 +160,33 @@ function buildquery(){
 			if (document.getElementById("dateBefore").value != "") {queryObj.date+=" before:"+document.getElementById("dateBefore").value;}
 			break;
 	}
+	switch(contentselect.value){
+		case "news":
+			queryObj.tab="inNews";
+			break;
+		case "images":
+			queryObj.tab="inImages";
+			break;
+		case "videos":
+			queryObj.tab="inVideos";
+			break;
+		case "shopping":
+			queryObj.tab="inShopping";
+			break;
+		case "books":
+			queryObj.tab="inBooks";
+			break;
+		default:
+			queryObj.tab="inAllWeb";
+			break;
+	}
 	return queryObj;
 }
 /*
 Returns the concatenated base and date part of the query
 */
 function queryToString(query){
-	return query.base+" "+query.date;
+	return query.base+" "+query.date+" "+query.tab;
 
 }
 /*
@@ -216,9 +244,11 @@ function clearAll(){
 		ftw.firstChild.remove();
 	}
 	dateselect.selectedIndex = 0;
+	contentselect.selectedIndex=0;
 	document.getElementById("kwAnd").checked=false;
 	document.getElementById("dateAfter").value="jj/mm/aaaa";
 	document.getElementById("dateBefore").value="jj/mm/aaaa";
+	
 }
 /*
 Updates the queries list
@@ -234,6 +264,25 @@ function updateList(){
 		for(i=0;i<storageList.length;i++){
 			var desig=queryToString(storageList[i]);
 			var url=buildSearchURL(queryToFullString(storageList[i]));
+			switch (storageList[i].tab) {
+				case "inNews":
+					url=url+"&tbm=nws";
+					break;
+				case "inImages":
+					url=url+"&tbm=isch";
+					break;
+				case "inVideos":
+					url=url+"&tbm=vid";
+					break;
+				case "inBooks":
+					url=url+"&tbm=bks";
+					break;
+				case "inShopping":
+					url=url+"&tbm=shop";
+					break;
+				default:
+					break;
+			}
 			var displayNode=document.createElement("A");
 			displayNode.setAttribute("href",url);
 			displayNode.setAttribute("target","_blank");
@@ -244,7 +293,9 @@ function updateList(){
 			deleteNode.setAttribute("class","deleteBtn");
 			deleteNode.innerText="Delete";
 			//adds a lisener to the delete buttons
-			deleteNode.addEventListener("click",deleteLine);
+			deleteNode.addEventListener("click",()=>{
+				browser.storage.local.remove(desig);
+			});
 
 			var liNode=document.createElement("LI");
 			liNode.appendChild(displayNode);

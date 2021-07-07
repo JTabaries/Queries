@@ -43,7 +43,7 @@ label{
 	flex-direction: column;
 	justify-content: space-between;
 }
-#dateSelect{
+select{
 	border: solid black 1px;
 	border-radius: 0px;
 	color: black;
@@ -115,6 +115,7 @@ div{
 .divform{
 	border: solid black 0.5px;
 	margin: 10px;
+	height: 16px;
 }
 #stored-queries{
 	display: flex;
