@@ -6,67 +6,67 @@
 	<title>Queries</title>
 </head>
 <body>
-	<div class="info"><h1>Queries</h1><p id="help-button">aide</p></div>
+	<div class="info"><h1>Queries</h1><p id="help-button"></p></div>
 	<div class="main-container">
 		<div id="left-container">
 			<div class="card" id="query-builder">
-				<header id="keywordheader">Constructeur de requête</header>
-				<p>Quels termes recherchez-vous?</p>
-				<label for="kwAnd">Tous les termes doivent être présents (AND)</label>
+				<header id="label1"></header>
+				<p id="label4"></p>
+				<label id="label6" for="kwAnd"></label>
 				<input type="checkbox" id="kwAnd" name="operator" value="AND">
 				<div class="wrapper" id="keywordWrapper"></div>
 				<div class="divform" id="keywordform" contenteditable="true"></div>
-				<button id="keywordbutton">ajouter</button>
+				<button class="addButton" id="keywordbutton"></button>
 
-				<p>Dans quels sites voulez-vous rechercher?</p>
+				<p id="label7"></p>
 				<div class="wrapper" id="siteWrapper"></div>
 				<div class="divform" id="siteform" contenteditable="true"></div>
-				<button id="sitebutton">ajouter</button>
+				<button class="addButton" id="sitebutton"></button>
 
-				<p>Quels types de fichiers recherchez-vous?</p>
+				<p id="label8"></p>
 				<div class="wrapper" id="filetypeWrapper"></div>
 				<div class="divform" id="filetypeform" contenteditable="true"></div>
-				<button id="filetypebutton">ajouter</button>
+				<button class="addButton" id="filetypebutton"></button>
 
-				<p>Que recherchez-vous?</p>
+				<p id="label9"></p>
 				<select id="contentSelect" name="content">
-					<option value="all">Tout</option>
-					<option value="news">Actualités</option>
-					<option value="images">Images</option>
-					<option value="videos">Vidéos</option>
-					<option value="shopping">Shopping</option>
-					<option value="books">Livres</option>
+					<option id="label11" value="all"></option>
+					<option id="label12" value="news"></option>
+					<option id="label13" value="images"></option>
+					<option id="label14" value="videos"></option>
+					<option id="label15" value="shopping"></option>
+					<option id="label16" value="books"></option>
 				</select>
-				<button id="contentselectbutton">ajouter</button>
+				<button class="addButton" id="contentselectbutton"></button>
 
-				<p>Dates</p>
+				<p id="label10"></p>
 				<div id="dates">
 					<select id="dateSelect" name="date">
-						<option value="none" selected>Aucune</option>
-						<option value="minusOne">Depuis hier</option>
-						<option value="minusSeven">Depuis 1 semaine</option>
-						<option value="minusThirty">Depuis 1 mois</option>
-						<option value="twoDates">Entre deux dates</option>
+						<option id="label17" value="none" selected></option>
+						<option id="label18" value="minusOne"></option>
+						<option id="label19" value="minusSeven"></option>
+						<option id="label20" value="minusThirty"></option>
+						<option id="label21" value="twoDates"></option>
 					</select>
 					<div id="datelimits">
-						<p>Entre le:</p><input type="date" id="dateAfter" name="dateAfter">
-						<p> et le:</p><input type="date" id="dateBefore" name="dateBefore">
+						<p id="label22">Entre le:</p><input type="date" id="dateAfter" name="dateAfter">
+						<p id="label23"> et le:</p><input type="date" id="dateBefore" name="dateBefore">
 					</div>
-					<button id="datebutton">ajouter</button>
+					<button class="addButton" id="datebutton"></button>
 				</div>
 			</div>
 		</div>
 		<div id="right-container">
 			<div class="upper">
 				<div class="card">
-					<header id="previewheader">Prévisualisation de la requête</header>
+					<header id="label2"></header>
 					<p id="query-preview"></p>
-					<button id="save-button">SAVE</button><button id="reset-button">RESET</button>
+					<button class="saveButton" id="save-button"></button><button class="resetButton" id="reset-button"></button>
 				</div>
 			</div>
 			<div class="lower">
 					<div class="card">
-						<header id="storedqueriesheader">Requêtes sauvegardées</header>
+						<header id="label3"></header>
 					<ul id="stored-queries"></ul>
 				</div>
 			</div>

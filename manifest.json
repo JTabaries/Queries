@@ -1,17 +1,18 @@
 {
 	"manifest_version":2,
-	"name":"queries_test",
-	"description": "An extension to design complex google queries.",
-	"version":"2.1",
+	"name":"__MSG_extensionName__",
+	"description": "__MSG_extensionDescription__",
+	"version":"2.2",
 	"icons":{
 		"48":"icons/query.svg"
 	},
 	"browser_action":{
 		"default_icon":"icons/query.svg",
-		"default_title":"Queries_test"
+		"default_title":"Queries"
 	},
 	"background": {
 		"scripts": ["background.js"]
 	  },
-	"permissions":["storage","tabs"]
+	"permissions":["storage","tabs"],
+	"default_locale": "fr"
 }

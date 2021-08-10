@@ -1,0 +1,119 @@
+{
+    "extensionName": {
+      "message": "Queries",
+      "description": "Nom de l'extension."
+    },
+  
+    "extensionDescription": {
+      "message": "Permet la conception et la sauvegarde de requêtes complexes google en mode graphique.",
+      "description": "Description de l'extension."
+    },
+    "addLabel":{
+        "message":"Ajouter",
+        "description":"Boutons d'ajouts d'élements."
+    },
+    "saveLabel":{
+      "message":"Sauvegarder",
+      "description":"bouton type sauvegarde"
+    },
+    "resetlabel":{
+      "message":"Reset",
+      "description":"Bouton type reset"
+    },
+    "helpLabel":{
+      "message":"aide",
+      "description":"aide de l'extension"
+    },
+    "deleteLabel":{
+      "message":"Supprimer",
+      "description":"Bouton type supprimer"
+    },
+    "label1":{
+      "message":"Constructeur de requêtes",
+      "description":"Titre de la partie constructeur."
+    }, 
+    "label2":{
+      "message":"Prévisualisation de la requête",
+      "description":"Titre de la partie prévisualisation."
+    },
+    "label3":{
+      "message":"Requêtes sauvegardées",
+      "description":"Titre de la partie sauvegarde."
+    },
+    "label4":{
+      "message":"Mots clés:",
+      "description":"Titre critère de recherche"
+    },
+    "label6":{
+      "message":"Tous les termes doivent être présents (AND)",
+      "description":"avis pour le choix de l'operateur AND"
+    }, 
+    "label7":{
+      "message":"Sites:",
+      "description":"Titre sites ciblés"
+    },
+    "label8":{
+      "message":"Types de fichier:",
+      "desccription":"Titre types de fichiers ciblés"
+    },
+    "label9":{
+      "message":"Catégorie de résultats:",
+      "description":"Titre catégorie de résultats"
+    }, 
+    "label10":{
+      "message":"Dates:",
+      "description":"Titre rubrique dates"
+    },
+    "label11":{
+      "message":"tout",
+      "description":"rechercher dans tout"
+    },
+    "label12":{
+      "message":"actualités",
+      "description":"rechercher dans news"
+    },
+    "label13":{
+      "message":"images",
+      "description":"rechercher dans images"
+    },
+    "label14":{
+      "message":"vidéos",
+      "description":"rechercher dans vidéos"
+    },
+    "label15":{
+      "message":"shopping",
+      "description":"rechercher dans shopping"
+    },
+    "label16":{
+      "message":"Livres",
+      "description":"rechercher dans livres"
+    },
+    "label17":{
+      "message":"Aucune",
+      "description":"pas de critère de date"
+    },
+    "label18":{
+      "message":"depuis  hier",
+      "description":"recherche depuis le jour précédent"
+    },
+    "label19":{
+      "message":"depuis 1 semaine",
+      "description":"recherche sur la semaine précédente"
+    },
+    "label20":{
+      "message":"depuis 1 mois",
+      "description":"recherche sur le mois précédent"
+    },
+    "label21":{
+      "message":"entre deux dates",
+      "description":"recherche entre deux dates"
+    },
+    "label22":{
+      "message":"Entre le:",
+      "description":"borne date inférieure"
+    },
+    "label23":{
+      "message":" et le:",
+      "description":"borne date supérieure"
+    }
+  }

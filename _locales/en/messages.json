@@ -1,0 +1,119 @@
+{
+    "extensionName": {
+      "message": "Queries",
+      "description": "Name of the extension."
+    },
+  
+    "extensionDescription": {
+      "message": "A GUI to design complex google queries",
+      "description": "Description of the extension."
+    },
+    "addLabel":{
+      "message":"Add",
+      "description":"Add buttons."
+  },
+  "saveLabel":{
+    "message":"Save",
+    "description":"Save buttons"
+  },
+  "resetlabel":{
+    "message":"Reset",
+    "description":"Reset buttons"
+  },
+  "helpLabel":{
+    "message":"help",
+    "description":"Extension help link"
+  },
+  "deleteLabel":{
+    "message":"Delete",
+    "description":"Delete buttons"
+  },
+  "label1":{
+    "message":"Query builder",
+    "description":"Builder title."
+  }, 
+  "label2":{
+    "message":"Query preview",
+    "description":"Preview title."
+  },
+  "label3":{
+    "message":"Saved queries",
+    "description":"Saved queries title."
+  },
+  "label4":{
+    "message":"Key words:",
+    "description":"Search keywords"
+  },
+  "label6":{
+    "message":"Search ALL key words (AND)",
+    "description":"Choosing operator AND"
+  }, 
+  "label7":{
+    "message":"Sites:",
+    "description":"Sites to be searched"
+  },
+  "label8":{
+    "message":"File types:",
+    "desccription":"File types to be retrieved"
+  },
+  "label9":{
+    "message":"Category:",
+    "description":"Category of results"
+  }, 
+  "label10":{
+    "message":"Dates:",
+    "description":"Dates criteria"
+  },
+  "label11":{
+    "message":"all",
+    "description":"search all"
+  },
+  "label12":{
+    "message":"news",
+    "description":"display news only"
+  },
+  "label13":{
+    "message":"images",
+    "description":"display images only"
+  },
+  "label14":{
+    "message":"videos",
+    "description":"display videos only"
+  },
+  "label15":{
+    "message":"shopping",
+    "description":"display shopping"
+  },
+  "label16":{
+    "message":"books",
+    "description":"display books only"
+  },
+  "label17":{
+    "message":"none",
+    "description":"no date criteria"
+  },
+  "label18":{
+    "message":"since yesterday",
+    "description":""
+  },
+  "label19":{
+    "message":"since last week",
+    "description":""
+  },
+  "label20":{
+    "message":"since last month",
+    "description":""
+  },
+  "label21":{
+    "message":"between two dates",
+    "description":""
+  },
+  "label22":{
+    "message":"From:",
+    "description":""
+  },
+  "label23":{
+    "message":" to:",
+    "description":""
+  }
+}

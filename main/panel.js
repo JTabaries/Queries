@@ -17,6 +17,7 @@ Creates specific storage area for stored queries
 Creates a listener for each button.
 */
 function init(){
+	manageLocals();
 	//displays helps page
 	hlp.addEventListener("click",()=>{
 		displayHelp();
@@ -93,7 +94,45 @@ function init(){
 	updateList();
 	browser.storage.onChanged.addListener(updateList);
 }
+/*I18N */
+function manageLocals(){
+	var addbuttons=document.getElementsByClassName("addButton");
+	for(let i=0;i<addbuttons.length;i++){
+		addbuttons[i].innerText=browser.i18n.getMessage("addLabel");
+	}
+	var savebuttons=document.getElementsByClassName("saveButton");
+	for(let i=0;i<savebuttons.length;i++){
+		savebuttons[i].innerText=browser.i18n.getMessage("saveLabel");
+	}
+	var resetbuttons=document.getElementsByClassName("resetButton");
+	for(let i=0;i<resetbuttons.length;i++){
+		resetbuttons[i].innerText=browser.i18n.getMessage("resetLabel");
+	}
+	document.getElementById("help-button").innerText=browser.i18n.getMessage("helpLabel");
+	document.getElementById("label1").innerText=browser.i18n.getMessage("label1");
+	document.getElementById("label2").innerText=browser.i18n.getMessage("label2");
+	document.getElementById("label3").innerText=browser.i18n.getMessage("label3");
+	document.getElementById("label4").innerText=browser.i18n.getMessage("label4");
+	document.getElementById("label6").innerText=browser.i18n.getMessage("label6");
+	document.getElementById("label7").innerText=browser.i18n.getMessage("label7");
+	document.getElementById("label8").innerText=browser.i18n.getMessage("label8");
+	document.getElementById("label9").innerText=browser.i18n.getMessage("label9");
+	document.getElementById("label10").innerText=browser.i18n.getMessage("label10");
+	document.getElementById("label11").innerText=browser.i18n.getMessage("label11");
+	document.getElementById("label12").innerText=browser.i18n.getMessage("label12");
+	document.getElementById("label13").innerText=browser.i18n.getMessage("label13");
+	document.getElementById("label14").innerText=browser.i18n.getMessage("label14");
+	document.getElementById("label15").innerText=browser.i18n.getMessage("label15");
+	document.getElementById("label16").innerText=browser.i18n.getMessage("label16");
+	document.getElementById("label17").innerText=browser.i18n.getMessage("label17");
+	document.getElementById("label18").innerText=browser.i18n.getMessage("label18");
+	document.getElementById("label19").innerText=browser.i18n.getMessage("label19");
+	document.getElementById("label20").innerText=browser.i18n.getMessage("label20");
+	document.getElementById("label21").innerText=browser.i18n.getMessage("label21");
+	document.getElementById("label22").innerText=browser.i18n.getMessage("label22");
+	document.getElementById("label23").innerText=browser.i18n.getMessage("label23");
 
+}
 /*
 Builds and returns a query object based on the user's entries. 
 */
@@ -291,7 +330,7 @@ function updateList(){
 
 			var deleteNode=document.createElement("BUTTON");
 			deleteNode.setAttribute("class","deleteBtn");
-			deleteNode.innerText="Delete";
+			deleteNode.innerText=browser.i18n.getMessage("deleteLabel");
 			//adds a lisener to the delete buttons
 			deleteNode.addEventListener("click",()=>{
 				browser.storage.local.remove(desig);

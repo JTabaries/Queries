@@ -17,6 +17,42 @@
 	</style>
 </head>
 <body>
+	<a href="#en">english version</a><br><a href="#fr">french version</a>
+	<div id="en"></div>
+	<h1>Help page</h1>
+	<p>The Queries extension is about easily creating complex google queries, using a graphical interface. Queries can be stored for multiple uses</p>
+	<h2>Index</h2>
+	<ul>
+		<li><a href="#features">Features</a></li>
+		<li><a href="#build">How to build a query</a></li>
+		<li><a href="#save">How to save a query</a></li>
+		<li><a href="#search">How to use a saved query</a></li>
+	</ul>
+	
+	<h2 id="features">Features</h2>
+	<p>2021-07-28</p>
+	<ul>
+		<li>Searching key words, sites, filtypes dates and category</li>
+		<li>OR operator only for filetypes and sites</li>
+		<p>For exemple: (filetype:png OR filetype:pdf)</p>
+		<li>OR et AND operators for key words:</li>
+		<p>(terme1 OR terme1) (site:site1 OR site:site2) ou (terme1 AND terme1) (site:site1 OR site:site2) </p>
+		<li>Dates: you can define times limits or a period.</li>
+		
+	</ul>
+	<h2 id="const">How to build a query</h2>
+	<p>To build a query, specify keywords, sites and filetypes that you are expecting, uisng the forms. They luste be entered one by  one using the "add" button. Each time you click "add" the form is reset. Default operator is "OR", to use "AND", click in the "AND" box.</p>
+	<br>
+	<p>Warning: use "AND" carefully, it may result in useless results otherwise (or no result at all).</p>
+	<br>
+	<p>To enter a date, use the "select" control. You can use time limits or a period such as "since one day", "since one week", etc.</p>
+	<p>It is also ossible to specify the category of result you expect, such as "news", "images" etc. Use the "select" control. </p>
+	<h2 id="sauv">How to save a query</h2>
+	<p>You can preview the query you are buildong in real time. If the query is right, just click "SAVE", else click "RESET" and try again. When you save a query, it appears in the "saved queries space, along with a "delete" button. </p>
+	<h2 id="search">How to use a saved query</h2>
+	<p>It's a link, just click it.</p>
+	<!----------------------------------------------------------->
+	<div id="fr"></div>
 	<h1>Aide</h1>
 	<p>L'extension Queries permet de concevoir des requêtes multicritières Google complexes, à l'aide d'une interface simple et intuitive, présentée sous la forme d'un panneau latéral.</p>
 	<h2>Sommaire</h2>
@@ -24,10 +60,11 @@
 		<li><a href="#fonct">Fonctionalités supportées</a></li>
 		<li><a href="#const">Construction d'une requête</a></li>
 		<li><a href="#sauv">Sauvegarde d'une requête</a></li>
-		<li><a href="#search">Utilisation des requêtes sauvegardées</a></li>
+		<li><a href="#rech">Utilisation des requêtes sauvegardées</a></li>
 	</ul>
+	
 	<h2 id="fonct">Fonctionnalités supportées</h2>
-	<p>V.0 du 16/05/2021</p>
+	<p>28/07/201</p>
 	<ul>
 		<li>Recherche par mots clés, par sites et par type de fichier,</li>
 		<li>Opérateur OR uniquement pour les sites et les types de fichiers:</li>
@@ -46,7 +83,7 @@
 	<p>Il est également possible de sélectionner le type de contenu recherché: il est possible de rechercher directement les actualités, les vidéos, les livres, les images ou parmi les sites commerciaux. Ce choix est effectué par un menu déroulant.</p>
 	<h2 id="sauv">Sauvegarde d'une requête</h2>
 	<p>Sous le constructeur de requête, il est possible de pré-visualiser la requête en cours de construction. La pré-visualisation est mise à jour en temps réel, au rythme de l'ajout des critères de recherche. Si la requête en cours de construction n'est pas satisfaisante, il est possible d'annuler la saisie à l'aide du bouton "RESET", qui vide l'ensemble des saisies. Si la requête est satisfaisante, elle doit être suavegardée à l'aide du bouton "SAVE".</p>
-	<h2 id="search">Utilisation des requêtes sauvegardées</h2>
+	<h2 id="rech">Utilisation des requêtes sauvegardées</h2>
 	<p>Les requêtes sauvegardées sont affichées sous forme de liste en bas du panneau latéral. Il s'agit de liens affichant la requête et pointant vers l'URL adaptée (URL "google.com?q=" suffixée par les termes de recherche encodés).</p>
 </body>
 </html>
